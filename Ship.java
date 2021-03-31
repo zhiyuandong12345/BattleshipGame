@@ -60,6 +60,25 @@ public abstract class Ship {
 		return this.horizontal;
 	}
 	
+	//helper method --zhiyuan
+	/**
+	 * This is a helper method for printing the ocean
+	 * get the boolean value of whether a ship at certain location is hit
+	 * @return true if it is hit
+	 * @return false if it is missed
+	 */
+	
+	public boolean getHitInOcean(int row, int column) {
+		int shipLocation = 0;
+		
+		if (this.isHorizontal()) {
+			shipLocation = this.getBowColumn() - column;
+			return this.getHit()[shipLocation];
+		}else if (!this.isHorizontal()) {
+			shipLocation = this.getBowRow() - row;
+			return this.getHit()[shipLocation];
+		}return false;
+	}
 	/**
 	 * set the row index of the front of the ship
 	 * @param row
@@ -96,7 +115,7 @@ public abstract class Ship {
 	 * @return
 	 */
 	boolean okToPlaceShipAt(int row, int column, boolean horizontal, Ocean ocean) {
-		if ((row < 0) | (row < 9) | (column < 0) | (column) > 9) return false;
+		if ((row < 0) | (row > 9) | (column < 0) | (column) > 9) return false;
 		
 		int r, c;
 		
@@ -149,4 +168,3 @@ public abstract class Ship {
 		}
 	}
 }
-

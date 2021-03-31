@@ -13,11 +13,13 @@ public class Ocean {
 	
 	Random random = new Random();
 	
+	
 	public Ocean() {
 		// initialize the ocean as empty
 		for (int i = 0; i < this.ships.length; i++) {
-			for (int j = 0; j < this.ships[0].length; j++) {
-				this.ships[i][j] = new EmptySea();
+			for (int j = 0; j < this.ships[0].length; j++) { 
+				this.ships[i][j] = new EmptySea();   
+
 			}
 		}
 		
@@ -25,7 +27,8 @@ public class Ocean {
 		this.hitCount = 0;
 		this.shipsSunk = 0;
 		
-		placeAllShipsRandomly();
+		placeAllShipsRandomly();  // is it the right place to call this method? 
+		
 	}
 	
 	public void tryPlacingShipUntilSuccess(Ship ship) {
@@ -119,7 +122,38 @@ public class Ocean {
 	 * . means never fired at
 	 */
 	void print() {
-		System.out.println(" 0123456789");
+		//print column numbers
+		for (int i = 0; i < this.ships.length; i++) {
+			System.out.println(i + " ");
+		}
+		
+		//print a blank line
+		System.out.println("");
+		
+		//print row numbers
+		for(int i = 0; i < this.ships[0].length; i++) {
+			Ship ship;
+			System.out.println(i + " ");
+			
+			//print the value of each ship
+			for (int j = 0; j < this.ships[i].length; j++) {
+				ship = this.ships[i][j];
+				
+			//if the ship is sunken, or if the shot is missed or hit
+				if (ship.isSunk() || ship.getHitInOcean(i, j)) {
+					
+					//print the ship object and calls the toString method in Ship class
+					System.out.println(ship + " ");
+				}else {
+					//if the location was never shot, print dot
+					System.out.println("." + " ");
+				}
+			}
+			
+		}
+		
+		
+		
 	}
 	
 	void printWithShips() {
