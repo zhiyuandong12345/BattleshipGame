@@ -45,14 +45,24 @@ public class BattleshipGame {
 			
 			//for checking whether the ships were placed correctly
 			//print the location of ships visually
-			ocean.printWithShips();
+			//ocean.printWithShips();
 			
 			while(!ocean.isGameOver()) {
 				
 				//print the ocean
-				ocean.print();
+				//ocean.print();
 				System.out.println("Hit count " + ocean.getHitCount());
 				
+				//get user input
+				System.out.println("Enter row: ");
+				String inputRow = scanner.next();
+				int numberRow = Integer.parseInt(inputRow);
+				
+				System.out.println("Enter column: ");
+				String inputColumn = scanner.next();
+				int numberColumn = Integer.parseInt(inputColumn);
+				
+				System.out.println(numberRow + numberColumn);
 			}
 		
 
