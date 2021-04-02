@@ -1,3 +1,5 @@
+//Zhiyuan 4.2
+
 package battleship;
 
 import java.util.Random;
@@ -125,33 +127,29 @@ public class Ocean {
 	 */
 	void print() {
 		//print column numbers
-		for (int i = 0; i < this.ships.length; i++) {
-			System.out.println(i + " ");
-		}
 
-		//print a blank line
-		System.out.println("");
+		System.out.println("  0 1 2 3 4 5 6 7 8 9");
 
 		//print row numbers
-		for(int i = 0; i < this.ships[i].length; i++) {
+		for(int i = 0; i < this.ships.length; i++) {
 			Ship ship;
-			System.out.println(i + " ");
+			System.out.print(i + " ");
 
 			//print the value of each ship
-			for (int j = 0; j < this.ships[i].length; j++) {
+			for (int j = 0; j < this.ships[0].length; j++) {
 				ship = this.ships[i][j];
 
 				//if the ship is sunken, or if the shot is missed or hit
 				if (ship.isSunk() || ship.getHitInOcean(i, j)) {
 
 					//print the ship object and calls the toString method in Ship class
-					System.out.println(ship + " ");
+					System.out.print(ship + " ");
 				}else {
 					//if the location was never shot, print dot
-					System.out.println("." + " ");
+					System.out.print("." + " ");
 				}
-			}System.out.println("");
-
+			}
+			System.out.println("");
 		}
 
 	}
@@ -168,29 +166,29 @@ public class Ocean {
 	 * ‘ ‘: Use ‘​ ​’ (single space) to indicate an ​EmptySea​.
 	 */
 	void printWithShips() {
-		//print column numbers along the top
-		for (int i = 0; i < this.ships.length; i++) {
-			System.out.println(i + " ");
-		}
-		//print a blank line
-		System.out.println("");
+		//print column numbers
+
+		System.out.println("  0 1 2 3 4 5 6 7 8 9");
 
 		//print row numbers
-		for(int i = 0; i < this.ships[0].length; i++) {
+		for(int i = 0; i < this.ships.length; i++) {
 			Ship ship;
-			System.out.println(i + " ");
+			System.out.print(i + " ");
+		
 
+		
 			//print the value of each ship
 			for (int j = 0; j < this.ships[i].length; j++) {
 				ship = this.ships[i][j];
-				
+
 				if (ship.getShipType() == "empty") {
-					System.out.println("");
+					System.out.print("");
 				}else {
 					//print the type of each ship
-					System.out.println(ship.getShipType() + " ");
+					System.out.print(ship.getShipType() + " ");
 				}
 			}
+			System.out.println("");
 		}
 	}
 }

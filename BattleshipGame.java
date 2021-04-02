@@ -1,3 +1,5 @@
+//Zhiyuan 4.2
+
 package battleship;
 
 import java.util.Scanner;
@@ -45,26 +47,41 @@ public class BattleshipGame {
 			
 			//for checking whether the ships were placed correctly
 			//print the location of ships visually
-			//ocean.printWithShips();
+			ocean.printWithShips();
 			
 			while(!ocean.isGameOver()) {
 				
 				//print the ocean
-				//ocean.print();
+				ocean.print();
 				System.out.println("Hit count " + ocean.getHitCount());
 				
 				//get user input
-				System.out.println("Enter row: ");
-				String inputRow = scanner.next();
-				int numberRow = Integer.parseInt(inputRow);
+				System.out.println("Enter row and enter column in the form of row,column (e.g. 3,4)");
+				String userInput = scanner.next();
+				String [] userInputParts = userInput.split(",");
 				
-				System.out.println("Enter column: ");
-				String inputColumn = scanner.next();
-				int numberColumn = Integer.parseInt(inputColumn);
+				String rowString = userInputParts[0];
+				String columnString = userInputParts[1];
 				
-				System.out.println(numberRow + numberColumn);
+				
+				int row = Integer.parseInt(rowString);
+				
+				int column = Integer.parseInt(columnString);
+				
+				//shoot at the location with the given row and column
+				
+				
+				
 			}
-		
+			
+			System.out.println("Game Over!");
+			System.out.println("Your total shots are " + ocean.getShotsFired());
+			
+			//ask the user whether wants to play again
+			System.out.println("Play again? (y/n)");
+			if (BattleshipGame.getYesOrNoFromPlayer(scanner)) {
+				
+			}
 
 
 
