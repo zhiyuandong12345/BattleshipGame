@@ -6,6 +6,11 @@ public class Cruiser extends Ship{
 	}
 	
 	public String getShipType() {
+		return "cruiser";
+	}
+	
+
+	public String getAlias() {
 		return "c";
 	}
 }

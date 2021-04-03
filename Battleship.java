@@ -6,6 +6,14 @@ public class Battleship extends Ship {
 	}
 	
 	public String getShipType() {
+		return "battleship";
+	}
+	
+
+	public String getAlias() {
 		return "b";
 	}
+	
+	
+	
 }

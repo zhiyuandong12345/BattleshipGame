@@ -6,6 +6,11 @@ public class Destroyer extends Ship{
 	}
 	
 	public String getShipType() {
+		return "destroyer";
+	}
+	
+
+	public String getAlias() {
 		return "d";
 	}
 }

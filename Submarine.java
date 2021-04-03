@@ -6,6 +6,11 @@ public class Submarine extends Ship{
 	}
 	
 	public String getShipType() {
+		return "submarine";
+	}
+	
+
+	public String getAlias() {
 		return "s";
 	}
 }
